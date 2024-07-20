@@ -1,0 +1,41 @@
+
+.header{      
+    background-color: rgba(255, 255, 255, 0.034);
+    display: flex;
+    top: 0;
+    width: 100vw; 
+    height: 35px;
+    text-align: center;
+    box-shadow: 0px 10px 70px 0px rgba(0,0,0,0.35);
+    -webkit-box-shadow: 0px 10px 70px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0px 10px 70px 0px rgba(0,0,0,0.35); 
+    overflow: hidden;
+    position: absolute;
+    
+}
+
+.logo-image{
+    position: relative;
+    height: 35px;
+    width: 110px;
+    margin: 0 15px;
+    z-index: 100;
+}
+
+.logo-container{
+    position: relative;
+    animation: slide 350s infinite linear;
+    white-space: nowrap;
+    margin: auto;
+    width: 100%;
+}
+
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}

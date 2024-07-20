@@ -1,0 +1,22 @@
+.landing-button{
+    all: unset;
+    background-color: aquamarine;
+    height: 6vh;
+    width: 12vw;
+    color: beige;
+    background-color: rgba(0, 0, 0, 0.685);
+    font-family: Permanent Marker;
+    font-size: 1rem;
+    
+    
+}
+
+.button-wrapper{
+    background-color: transparent;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+

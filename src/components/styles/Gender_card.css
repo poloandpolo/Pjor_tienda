@@ -1,0 +1,12 @@
+.model-container{
+    display: flex;
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.model-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
