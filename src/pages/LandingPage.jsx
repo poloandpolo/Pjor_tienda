@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Header } from '../components/Header';
 import { Gender_card } from '../components/Gender_card_card';
 import men from '../images/men.jpg';
 import women from '../images/women.jpg';
@@ -12,24 +11,24 @@ export const LandingPage = () => {
   const navigate = useNavigate();
 
   const handleClickMen = () => {
-    navigate('/men');
+    navigate('/hombre');
   };
 
   const handleClickWomen = () => {
-    navigate('/women');
+    navigate('/mujer');
   };
 
   return (
     <div>
       <Header_Landing />
       <div className='cards-container'>
-      <Gender_card imagen={men} onClick={handleClickMen} /> 
-      <Gender_card imagen={women} onClick={handleClickWomen}/>
+      <Gender_card imagen={men}/> 
+      <Gender_card imagen={women}/>
       <div className='landing-buttons-container'>
-        <Landing_button text={"Men"}/>
-        <Landing_button text={"Woman"}/>
+        <Landing_button text={"Hombre"} onClick={handleClickMen}/>
+        <Landing_button text={"Mujer"} onClick={handleClickWomen}/>
         <Landing_button text={"Media"}/>
-        <Landing_button text={"Team"}/>
+        <Landing_button text={"Crew "}/>
         <Landing_button text={"Vision"}/>
       </div>
       </div>

@@ -1,9 +1,9 @@
 import React from 'react'
 import './styles/Landing_button.css'
 
-const Landing_button = ({text}) => {
+const Landing_button = ({text, onClick}) => {
   return (
-    <div className='button-wrapper'>
+    <div className='button-wrapper' onClick={onClick}>
         <button className='landing-button'>{text}</button>
     </div>
   )

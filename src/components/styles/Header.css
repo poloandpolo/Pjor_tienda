@@ -4,20 +4,18 @@
     display: flex;
     top: 0;
     width: 100vw; 
-    height: 35px;
+    height: 23px;
     text-align: center;
     box-shadow: 0px 10px 70px 0px rgba(0,0,0,0.35);
     -webkit-box-shadow: 0px 10px 70px 0px rgba(0,0,0,0.35);
     -moz-box-shadow: 0px 10px 70px 0px rgba(0,0,0,0.35); 
-    overflow: hidden;
-    position: absolute;
-    
-}
+    position: relative;
+}   
 
 .logo-image{
     position: relative;
-    height: 35px;
-    width: 110px;
+    height: 23px;
+    width: 70px;
     margin: 0 15px;
     z-index: 100;
 }
