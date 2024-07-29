@@ -1,0 +1,23 @@
+.clothing-bar-checkbox-wrapper{
+    font-size: 22px; 
+    letter-spacing: 3px;
+    font-family: Permanent Marker;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+.clothing-bar-checkbox{
+    margin: auto 5%;
+}
+
+@media (max-width: 768px) {
+    .clothing-bar-checkbox-wrapper{
+        font-size: 15px; 
+        letter-spacing: 0;
+        font-family: Permanent Marker;
+        width: 100%;
+        margin: 15px 0px;
+    }
+    
+}
+

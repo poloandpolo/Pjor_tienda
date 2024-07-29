@@ -1,0 +1,19 @@
+.clothing-bar-container{
+    display: flex;
+    position: relative;
+    width: 22%;
+    flex-direction: column;
+    height: 70%;
+    padding-left: 3vw;
+}
+
+@media (max-width: 768px) {
+    .clothing-bar-container{
+        display: flex;
+        position: relative;
+        width: 25%;
+        flex-direction: column;
+        height: 70%;
+        padding-left: 3vw;
+    }
+}

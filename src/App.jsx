@@ -1,5 +1,4 @@
 import { LandingPage } from './pages/LandingPage'
-import { Header } from './components/Header'
 import { MenPage } from './pages/MenPage'
 import {WomenPage} from './pages/WomenPage'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'

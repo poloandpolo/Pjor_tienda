@@ -1,0 +1,14 @@
+.galery-container {
+    width: 78%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas para los pares */
+    gap: 16px; /* Espacio entre las tarjetas */
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .galery-container {
+        grid-template-columns: 1fr; /* 1 columna para pantallas más pequeñas */
+        transform: translateX(35px)
+    }
+}

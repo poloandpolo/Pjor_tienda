@@ -1,6 +1,6 @@
 
 .header-landing{      
-    background-color: rgba(255, 255, 255, 0.034);
+    background-color: rgba(255, 255, 255, 0.039);
     display: flex;
     top: 0;
     width: 100vw; 
@@ -28,7 +28,6 @@
     white-space: nowrap;
     margin: auto;
     width: 100%;
-
 }
 
 

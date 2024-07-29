@@ -1,0 +1,77 @@
+/* Estilo para el contenedor del menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 10px; /* Espaciado entre los menús desplegables */
+  }
+  
+  /* Estilo para el botón del menú */
+  .dropbtn {
+    all: unset;
+    background: transparent;
+    margin: 10px 0px 0px 10px;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 23px;
+    cursor: pointer; /* Añadir cursor pointer para mejor UX */
+  }
+  
+  /* Estilo para el contenido del menú desplegable */
+  .dropdown-content {
+    position: absolute;
+    min-width: 200px; /* Ajusta según sea necesario */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-top: 10px;
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  }
+  
+  /* Mostrar el contenido del menú desplegable con transición */
+  .dropdown-content.show {
+    transform: scaleY(1);
+    opacity: 1;
+    position: relative;
+  }
+  
+  .dropbtn label {
+    transform: translateX(-35px); /* Mueve el label 10px a la izquierda */
+    position: absolute;
+  }
+
+  @media (max-width: 768px) {
+    .dropbtn {
+      all: unset;
+      background: transparent;
+      margin: 5px 0px 0px 10px;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 15px;
+      cursor: pointer; /* Añadir cursor pointer para mejor UX */
+    }
+
+    .dropbtn label {
+      transform: translateX(-20px); /* Mueve el label 10px a la izquierda */
+      position: absolute;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      min-width: 100px;
+      z-index: 1;
+      margin-top: 10px;
+      transform: scaleY(0);
+      transform-origin: top;
+      opacity: 0;
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+
+    .dropdown-content.show {
+      transform: scaleY(1);
+      opacity: 1;
+      position: relative;
+      transform: translateX(-5px);
+    }
+
+}

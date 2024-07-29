@@ -8,7 +8,18 @@
 
 .navigationbar-container label{
     margin: auto;
-    font-size: 18px;
+     font-size: 22.5px; 
     letter-spacing: 5px;
     font-family: Creepster;
+    
+}
+
+@media (max-width: 768px) {
+    .navigationbar-container label{
+        margin: auto;
+         font-size: 14.5px; 
+        letter-spacing: 5px;
+        font-family: Creepster;
+        
+    }
 }
