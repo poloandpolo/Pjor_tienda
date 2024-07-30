@@ -13,6 +13,7 @@
     font-family: 'Permanent Marker', cursive;
     font-size: 23px;
     cursor: pointer; /* Añadir cursor pointer para mejor UX */
+    letter-spacing: 0.1px;
   }
   
   /* Estilo para el contenido del menú desplegable */
