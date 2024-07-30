@@ -7,9 +7,6 @@
     background-color: rgba(0, 0, 0, 0.685);
     font-family: Permanent Marker;
     font-size: 1rem;
-    
-    
-    
 }
 
 .button-wrapper{
@@ -19,5 +16,17 @@
     align-items: center;
 }
 
+@media (max-width: 768px) {
+    .landing-button{
+        all: unset;
+        background-color: aquamarine;
+        height: 4vh;
+        width: 80px;
+        color: beige;
+        background-color: rgba(0, 0, 0, 0.685);
+        font-family: Permanent Marker;
+        font-size: 0.8rem;
+    }
+}
 
 
