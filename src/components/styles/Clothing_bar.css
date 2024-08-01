@@ -7,13 +7,34 @@
     padding-left: 3vw;
 }
 
+.close-menu-button{
+    display: none;
+}
+
+
 @media (max-width: 768px) {
     .clothing-bar-container{
+        display: none;
+    }
+
+    .clothing-bar-container.show{
         display: flex;
-        position: relative;
+        position: fixed;
         width: 25%;
         flex-direction: column;
         height: 70%;
         padding-left: 3vw;
+        z-index: 500;
     }
+
+    .close-menu-button{
+        all: unset;
+        display: flex;
+        position: absolute;
+        font-family: Permanent Marker;
+        color: brown;
+        transform: translateX(20vw) translateY(-5vw);
+        font-size: 32px;
+    }
+    
 }
