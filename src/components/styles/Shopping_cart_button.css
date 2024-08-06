@@ -1,0 +1,25 @@
+.shopping-cart-button{
+    position: fixed;
+    background-color: aqua;
+    bottom: 0;
+    right: 90vw;
+    z-index: 2000;
+    border-radius: 10px;
+    height: 80px;
+    width: 80px;
+}
+
+@media (max-width: 768px) {
+    .shopping-cart-button{
+    position: fixed;
+    background-color: aqua;
+    top: 50%;
+    left: 0;
+    transform: translateY(120%);
+    z-index: 2000;
+    border-radius: 10px;
+    height: 8.5vw;
+    width: 8.5vw;
+}
+
+}

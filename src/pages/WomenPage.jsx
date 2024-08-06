@@ -5,7 +5,10 @@ import { Clothing_bar } from '../components/Clothing_bar';
 import './styles/WomenPage.css';
 import { Clothing_galery } from '../components/Clothing_galery';
 import playera_logo_clasica_mujer from '../images/playera_logo_clasica_mujer.jpg';
+import playera_logo_clasica_mujer_2 from '../images/playera_logo_clasica_mujer.jpg';
 import { Menu_button } from '../components/Menu_button';
+import { Shopping_cart } from '../components/Shopping_cart';
+import { Shopping_cart_button } from '../components/Shopping_cart_button';
 
 const dropdownMenus = [
   {
@@ -40,8 +43,18 @@ const dropdownMenus = [
   }
 ];
 
+const clothingItems = [
+  { images: [playera_logo_clasica_mujer, playera_logo_clasica_mujer_2], text: "Playera logo clásica" },
+  { images: [playera_logo_clasica_mujer, playera_logo_clasica_mujer_2], text: "Playera logo clásica 2" },
+  { images: [playera_logo_clasica_mujer, playera_logo_clasica_mujer_2], text: "Playera logo clásica 3" },
+  { images: [playera_logo_clasica_mujer, playera_logo_clasica_mujer_2], text: "Playera logo clásica 4" },
+  { images: [playera_logo_clasica_mujer, playera_logo_clasica_mujer_2], text: "Playera logo clásica 5" },
+  { images: [playera_logo_clasica_mujer, playera_logo_clasica_mujer_2], text: "Playera logo clásica 6" }
+];
+
 export const WomenPage = () => {
   const [isClothingBarOpen, setIsClothingBarOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleResize = () => {
     if (window.innerWidth > 768) {
@@ -62,6 +75,14 @@ export const WomenPage = () => {
     setIsClothingBarOpen(prevState => !prevState);
   };
 
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   return (
     <div className='women-page-container'>
       <Header />
@@ -80,12 +101,12 @@ export const WomenPage = () => {
           />
         )}
         <Clothing_galery 
-          image={playera_logo_clasica_mujer} 
-          text="Playera logo clásica" 
-          repeat={6} 
+          items={clothingItems} 
           isClothingBarOpen={isClothingBarOpen}
         />
       </div>
+      <Shopping_cart_button onClick={openModal} />
+      <Shopping_cart isOpen={modalIsOpen} onClose={closeModal} />
     </div>
   );
 };

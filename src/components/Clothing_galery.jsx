@@ -2,12 +2,12 @@ import React from 'react';
 import './styles/Clothing_galery.css';
 import { Clothing_card } from './Clothing_card';
 
-export const Clothing_galery = ({ image, text, repeat, isClothingBarOpen }) => {
-  const cards = Array.from({ length: repeat }).map((_, index) => (
+export const Clothing_galery = ({ items, isClothingBarOpen }) => {
+  const cards = items.map((item, index) => (
     <Clothing_card 
       key={index} 
-      imagen={image} 
-      text={text} 
+      images={item.images} 
+      text={item.text} 
       isClothingBarOpen={isClothingBarOpen} 
     />
   ));
@@ -18,4 +18,3 @@ export const Clothing_galery = ({ image, text, repeat, isClothingBarOpen }) => {
     </div>
   );
 };
-

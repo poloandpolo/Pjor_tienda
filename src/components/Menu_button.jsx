@@ -18,7 +18,7 @@ export const Menu_button = ({ isOpen, toggleClothingBar }) => {
         onClick={toggleClothingBar}
         style={{ whiteSpace: 'pre-wrap' }} // Mantener los saltos de línea
       >
-        {'R\nO\nP\nA'.split('\n').map((char, index) => (
+        {'📌'.split('\n').map((char, index) => (
           <React.Fragment key={index}>
             {char}
             <br />

@@ -5,7 +5,10 @@ import { Clothing_bar } from '../components/Clothing_bar';
 import './styles/MenPage.css';
 import { Clothing_galery } from '../components/Clothing_galery';
 import playera_logo_clasica_hombre from '../images/playera_logo_clasica_hombre.jpg';
+import playera_logo_clasica_hombre_2 from '../images/playera_logo_clasica_hombre.jpg';
 import { Menu_button } from '../components/Menu_button';
+import { Shopping_cart } from '../components/Shopping_cart';
+import { Shopping_cart_button } from '../components/Shopping_cart_button';
 
 const dropdownMenus = [
   {
@@ -35,24 +38,43 @@ const dropdownMenus = [
   }
 ];
 
+const clothingItems = [
+  { images: [playera_logo_clasica_hombre, playera_logo_clasica_hombre_2], text: "Playera logo clásica" },
+  { images: [playera_logo_clasica_hombre, playera_logo_clasica_hombre_2], text: "Playera logo clásica 2" },
+  { images: [playera_logo_clasica_hombre, playera_logo_clasica_hombre_2], text: "Playera logo clásica 3" },
+  { images: [playera_logo_clasica_hombre, playera_logo_clasica_hombre_2], text: "Playera logo clásica 4" },
+  { images: [playera_logo_clasica_hombre, playera_logo_clasica_hombre_2], text: "Playera logo clásica 5" },
+  { images: [playera_logo_clasica_hombre, playera_logo_clasica_hombre_2], text: "Playera logo clásica 6" }
+];
+
 export const MenPage = () => {
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   const [isClothingBarOpen, setIsClothingBarOpen] = useState(false);
 
   const handleResize = () => {
-    // Cambia el estado según el tamaño de la ventana
     if (window.innerWidth > 768) {
-      setIsClothingBarOpen(true); // Muestra la barra de ropa en pantallas grandes
+      setIsClothingBarOpen(true);
     } else {
-      setIsClothingBarOpen(false); // Oculta la barra de ropa en pantallas pequeñas
+      setIsClothingBarOpen(false);
     }
   };
 
   useEffect(() => {
-    handleResize(); // Verifica el tamaño inicial
-    window.addEventListener('resize', handleResize); // Agrega el listener para cambios de tamaño
+    handleResize();
+    window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize); // Limpia el listener al desmontar
-  }, []); // Solo se ejecuta al montar y desmontar el componente
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const toggleClothingBar = () => {
     setIsClothingBarOpen(prevState => !prevState);
@@ -76,12 +98,12 @@ export const MenPage = () => {
           />
         )}
         <Clothing_galery 
-          image={playera_logo_clasica_hombre} 
-          text="Playera logo clásica" 
-          repeat={6} 
+          items={clothingItems} 
           isClothingBarOpen={isClothingBarOpen}
         />
       </div>
+      <Shopping_cart_button onClick={openModal} />
+      <Shopping_cart isOpen={modalIsOpen} onClose={closeModal} />
     </div>
   );
-};
+}
