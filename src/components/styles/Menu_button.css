@@ -7,6 +7,26 @@
     transform: translateY(-150%);
     font-family: Permanent Marker;
     background-color: white;
+    height: 2.5vw;
+    width: 2.5vw;
+    font-size: 20px;
+}
+
+.menu-button.hide {
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+    /* styles/Menu_button.css */
+.menu-button.show {
+    position: fixed;
+    border-radius: 10px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-150%);
+    font-family: Permanent Marker;
+    background-color: white;
     height: 8vw;
     width: 8vw;
     font-size: 20px;
@@ -14,4 +34,5 @@
 
 .menu-button.hide {
     display: none;
+}
 }

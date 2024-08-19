@@ -1,0 +1,56 @@
+/* Estilos del overlay */
+.modal-size-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+  }
+  
+  /* Modal visible */
+  .modal-size-overlay.show {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Estilos del contenido del modal */
+  .modal-size-content {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    max-height: 100vh; /* Ajusta la altura máxima del modal */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    overflow: hidden; /* Asegura que el contenido no se desborde del modal */
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    justify-content: space-between;
+  }
+
+  .modal-size-content label{
+    margin: 10px;
+  }
+
+  .modal-size-content label:hover{
+    background-color: rgba(0, 0, 0, 0.192);
+  }
+  
+  .close-size-button{
+    all: unset;
+    display: flex;
+    position: absolute;
+    font-family: Permanent Marker;
+    color: brown;
+    transform: translateX(13vw) translateY(-2.5vw);
+}

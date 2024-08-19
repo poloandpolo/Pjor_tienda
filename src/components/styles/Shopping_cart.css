@@ -1,33 +1,84 @@
 /* Estilos del overlay */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 1000;
-  }
-  
-  /* Modal visible */
-  .modal-overlay.show {
-    visibility: visible;
-    opacity: 1;
-  }
-  
-  /* Estilos del contenido del modal */
-  .modal-content {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    width: 80%;
-    max-width: 500px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  }
-  
+.model-cart-title{
+  font-family: Permanent Marker;
+  margin: auto;
+}
+
+.close-button-wrapper{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.cart-items{
+  margin: auto;
+}
+
+.close-cart-button{
+  all: unset;
+  display: flex;
+  position: absolute;
+  font-family: Permanent Marker;
+  color: brown;
+  z-index: 1000;
+  font-size: 30px;
+}
+
+
+.modal-cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+/* Modal visible */
+.modal-cart-overlay.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Estilos del contenido del modal */
+.modal-cart-content {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  height: 100vh;
+  max-width: 600px;
+  max-height: 100vh; /* Ajusta la altura máxima del modal */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Asegura que el contenido no se desborde del modal */
+}
+
+/* Contenedor de ítems del carrito */
+.cart-items {
+  flex: 1;
+  overflow-y: auto; /* Permite el desplazamiento vertical */
+  margin-top: 10px;
+}
+
+/* Estilo de cada ítem del carrito */
+.cart-item {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+/* Estilo de la imagen en el ítem del carrito */
+.cart-item img {
+  height: 20vw;
+  width: 20vw;
+  margin: auto;
+}

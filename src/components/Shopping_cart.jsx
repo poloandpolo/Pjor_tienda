@@ -1,13 +1,22 @@
 import React from 'react';
-import './styles/Shopping_cart.css'
+import './styles/Shopping_cart.css';
+import { Shopping_cart_card } from './Shopping_cart_card';
 
-export const Shopping_cart = ({ isOpen, onClose }) => {
+export const Shopping_cart = ({ isOpen, onClose, items }) => {
+  const cartCards = items.map((item, index) => (
+    <Shopping_cart_card key={index} item={item} />
+  ));
+
   return (
-    <div className={`modal-overlay ${isOpen ? 'show' : ''}`} onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <h2>Carrito de Compras</h2>
-        <button onClick={onClose}>Cerrar Carrito</button>
-        {/* Aquí puedes agregar el contenido del carrito */}
+    <div className={`modal-cart-overlay ${isOpen ? 'show' : ''}`} onClick={onClose}>
+      <div className="modal-cart-content" onClick={(e) => e.stopPropagation()}>
+        <div className='close-button-wrapper'>
+          <button className='close-cart-button' onClick={onClose}>X</button>
+        </div>
+        <h2 className='model-cart-title'>Carrito de Compras</h2>
+        <div className="cart-items">
+          {cartCards}
+        </div>
       </div>
     </div>
   );

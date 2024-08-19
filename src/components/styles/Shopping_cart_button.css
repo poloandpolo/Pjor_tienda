@@ -1,18 +1,27 @@
 .shopping-cart-button{
     position: fixed;
-    background-color: aqua;
-    bottom: 0;
-    right: 90vw;
+    background-color: white;
+    padding: 2px;
+    top: 50%;
+    left: 0;
+    transform: translateY(120%);
     z-index: 2000;
     border-radius: 10px;
-    height: 80px;
-    width: 80px;
+    height: 2.5vw;
+    width: 2.5vw;
 }
+
+.shopping-cart-container.hide{
+    display: none;
+}
+
+
 
 @media (max-width: 768px) {
     .shopping-cart-button{
     position: fixed;
-    background-color: aqua;
+    background-color: white;
+    padding: 2px;
     top: 50%;
     left: 0;
     transform: translateY(120%);
@@ -20,6 +29,10 @@
     border-radius: 10px;
     height: 8.5vw;
     width: 8.5vw;
+}
+
+.shopping-cart-container.hide{
+    display: none;
 }
 
 }

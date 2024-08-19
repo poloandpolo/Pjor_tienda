@@ -1,0 +1,54 @@
+.modal-clothing-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.modal-clothing-overlay.show {
+    visibility: visible;
+}
+
+.modal-clothing-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width:42vw;
+    max-height: 100vh;
+    overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+.clothing-modal-slider-container {
+    width: 95%;
+    height: 100%;
+    margin: auto;
+}
+
+.clothing-modal-slider-container img {
+    width: 100%;
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover;
+}
+
+.modal-clothing-content .slick-prev:before, .modal-clothing-content .slick-next:before {
+    font-size: 24px;
+    color: #0000006c !important; /* Asegúrate de que el color se aplique */
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    .modal-clothing-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width:80vw;
+        max-height: 100vh;
+        overflow: hidden; /* Evita que el contenido se desborde */
+    }
+}

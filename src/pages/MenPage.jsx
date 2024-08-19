@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Header } from '../components/Header';
 import { Navigation_bar } from '../components/Navigation_bar';
 import { Clothing_bar } from '../components/Clothing_bar';
 import './styles/MenPage.css';
 import { Clothing_galery } from '../components/Clothing_galery';
+import { Clothing_modal } from '../components/Clothing_modal';
 import playera_logo_clasica_hombre from '../images/playera_logo_clasica_hombre.jpg';
 import playera_logo_clasica_hombre_2 from '../images/playera_logo_clasica_hombre.jpg';
 import { Menu_button } from '../components/Menu_button';
@@ -48,8 +49,18 @@ const clothingItems = [
 ];
 
 export const MenPage = () => {
-
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [isClothingBarOpen, setIsClothingBarOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+  const [clothingModalData, setClothingModalData] = useState(null);
+
+  const openClothingModal = (item) => {
+    setClothingModalData(item);
+  };
+
+  const closeClothingModal = () => {
+    setClothingModalData(null);
+  };
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -59,25 +70,12 @@ export const MenPage = () => {
     setModalIsOpen(false);
   };
 
-  const [isClothingBarOpen, setIsClothingBarOpen] = useState(false);
-
-  const handleResize = () => {
-    if (window.innerWidth > 768) {
-      setIsClothingBarOpen(true);
-    } else {
-      setIsClothingBarOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    handleResize();
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   const toggleClothingBar = () => {
     setIsClothingBarOpen(prevState => !prevState);
+  };
+
+  const addToCart = (item) => {
+    setCartItems(prevItems => [...prevItems, item]);
   };
 
   return (
@@ -86,24 +84,40 @@ export const MenPage = () => {
       <Navigation_bar />
       <div className='clothing-section'>
         {!isClothingBarOpen && (
-          <Menu_button 
-            toggleClothingBar={toggleClothingBar} 
+          <Menu_button
+            toggleClothingBar={toggleClothingBar}
+            isOpen={isClothingBarOpen}
           />
         )}
         {isClothingBarOpen && (
-          <Clothing_bar 
-            dropdownMenus={dropdownMenus} 
-            isOpen={isClothingBarOpen} 
-            toggleClothingBar={toggleClothingBar} 
+          <Clothing_bar
+            dropdownMenus={dropdownMenus}
+            isOpen={isClothingBarOpen}
+            toggleClothingBar={toggleClothingBar}
           />
         )}
-        <Clothing_galery 
-          items={clothingItems} 
+        <Clothing_galery
+          items={clothingItems}
           isClothingBarOpen={isClothingBarOpen}
+          addToCart={addToCart}
+          onOpenClothingModal={openClothingModal}
         />
       </div>
-      <Shopping_cart_button onClick={openModal} />
-      <Shopping_cart isOpen={modalIsOpen} onClose={closeModal} />
+      <Shopping_cart_button
+        onClick={openModal}
+        isOpen={isClothingBarOpen}
+      />
+      <Shopping_cart
+        isOpen={modalIsOpen}
+        onClose={closeModal}
+        items={cartItems}
+      />
+
+      <Clothing_modal
+        isOpen={clothingModalData !== null}
+        onClose={closeClothingModal}
+        data={clothingModalData}
+      />
     </div>
   );
-}
+};
