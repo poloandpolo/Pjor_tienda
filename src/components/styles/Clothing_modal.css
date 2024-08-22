@@ -20,10 +20,47 @@
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    width:42vw;
+    width: 42vw;
     max-height: 100vh;
-    overflow: hidden; /* Evita que el contenido se desborde */
+    overflow: hidden;
+    position: relative;
+    /* Evita que el contenido se desborde */
 }
+
+.clothing-modal-add-to-cart-icon{
+    background-color: white;
+    width: 5vw;
+    height: 4.8vw;
+    padding: 0px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 4.5vw;
+    right: 3vw;
+    padding: 2px;
+}
+
+.clothing-modal-details-label-color{
+    font-family: Permanent Marker;
+    font-size: 1.6vw;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    z-index: 1500;
+    bottom: 9.8vw;
+    right: 3vw;
+    border-radius: 5px;
+}
+
+.clothing-modal-details-label-size{
+    font-family: Permanent Marker;
+    font-size: 1.6vw;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    z-index: 1500;
+    bottom: 12.6vw;
+    right: 3vw;
+    border-radius: 5px;
+}
+
 
 .clothing-modal-slider-container {
     width: 95%;
@@ -31,24 +68,63 @@
     margin: auto;
 }
 
-.clothing-modal-slider-container img {
+
+
+.close-clothing-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
     width: 100%;
-    height: auto; /* Mantiene la proporción de la imagen */
-    object-fit: cover;
 }
 
-.modal-clothing-content .slick-prev:before, .modal-clothing-content .slick-next:before {
+
+.modal-clothing-content .slick-prev:before,
+.modal-clothing-content .slick-next:before {
     font-size: 24px;
-    color: #0000006c !important; /* Asegúrate de que el color se aplique */
+    color: #0000006c;
+    /* Asegúrate de que el color se aplique */
 }
 
-@media (min-width: 600px) and (max-width: 1024px) {
+
+/* Estilos para Nest Hub y Nest Hub Max */
+/* Estilos para Nest Hub y Nest Hub Max */
+
+
+/* Estilos para Nest Hub y Nest Hub Max */
+@media only screen and (min-width: 1024px) and (max-width: 1280px) and (min-height: 600px) and (max-height: 800px) and (orientation: landscape) {
     .modal-clothing-content {
         background-color: white;
         padding: 20px;
         border-radius: 10px;
-        width:80vw;
+        width: 53vw;
         max-height: 100vh;
-        overflow: hidden; /* Evita que el contenido se desborde */
+        overflow: hidden;
+        /* Evita que el contenido se desborde */
+        /* Tus estilos específicos para Nest Hub y Nest Hub Max */
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1024px) and (min-height: 1366px) and (max-height: 1366px) and (orientation: portrait) {
+    .modal-clothing-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 80vw;
+        max-height: 100vh;
+        overflow: hidden;
+        /* Evita que el contenido se desborde */
+        /* Tus estilos específicos para Nest Hub y Nest Hub Max */
+    }
+}
+
+@media only screen and (min-width: 1366px) and (max-width: 1366px) and (min-height: 1024px) and (max-height: 1024px) and (orientation: landscape) {
+    .modal-clothing-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 65vw;
+        max-height: 100vh;
+        overflow: hidden;
+        /* Evita que el contenido se desborde */
+        /* Tus estilos específicos para Nest Hub y Nest Hub Max */
     }
 }

@@ -3,9 +3,11 @@ import Slider from 'react-slick';
 import './styles/Clothing_card.css';
 import add_to_cart_icon from '/bolsa-de-la-compra.png';
 import { Size_modal } from './Size_modal';
+import { useMenPageContext } from '../context/MenPage_context';
 
-export const Clothing_card = ({ images, text, isClothingBarOpen, addToCart, onOpenClothingModal }) => {
+export const Clothing_card = ({ images, text, id, isClothingBarOpen, onOpenClothingModal }) => {
   const [isSizeModalOpen, setIsSizeModalOpen] = useState(false);
+  const { addToCart } = useMenPageContext();
 
   const settings = {
     dots: false,
@@ -17,7 +19,7 @@ export const Clothing_card = ({ images, text, isClothingBarOpen, addToCart, onOp
   };
 
   const handleAddToCart = () => {
-    addToCart({ images, text });
+    addToCart({ images, text, id });
   };
 
   const openSizeModal = () => {
