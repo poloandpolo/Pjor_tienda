@@ -1,20 +1,16 @@
 /* Estilos del overlay */
-.model-cart-title{
+.model-cart-title {
   font-family: Permanent Marker;
   margin: auto;
 }
 
-.close-button-wrapper{
+.close-button-wrapper {
   display: flex;
   justify-content: flex-end;
   width: 100%;
 }
 
-.cart-items{
-  margin: auto;
-}
-
-.close-cart-button{
+.close-cart-button {
   all: unset;
   display: flex;
   position: absolute;
@@ -24,7 +20,7 @@
   font-size: 30px;
 }
 
-
+/* Overlay del modal */
 .modal-cart-overlay {
   position: fixed;
   top: 0;
@@ -48,19 +44,17 @@
   opacity: 1;
 }
 
-/* Estilos del contenido del modal */
+/* Contenido del modal */
 .modal-cart-content {
   background-color: #fff;
   border-radius: 8px;
   padding: 20px;
   width: 80%;
-  height: 100vh;
   max-width: 600px;
-  max-height: 100vh; /* Ajusta la altura máxima del modal */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  height: 100vh; /* Ajusta la altura máxima del modal para permitir espacio para desplazamiento */
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Asegura que el contenido no se desborde del modal */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Contenedor de ítems del carrito */
@@ -68,17 +62,4 @@
   flex: 1;
   overflow-y: auto; /* Permite el desplazamiento vertical */
   margin-top: 10px;
-}
-
-/* Estilo de cada ítem del carrito */
-.cart-item {
-  display: flex;
-  margin-bottom: 10px;
-}
-
-/* Estilo de la imagen en el ítem del carrito */
-.cart-item img {
-  height: 20vw;
-  width: 20vw;
-  margin: auto;
 }

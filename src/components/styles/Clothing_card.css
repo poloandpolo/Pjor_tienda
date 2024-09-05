@@ -14,7 +14,6 @@
     width: 100%;
     height: 100%;
     margin: auto;
-    
 }
 
 .slick-slider {
@@ -58,6 +57,15 @@
     bottom: 10.6vw;
     right: 2.2vw;
     border-radius: 5px;
+    width: 4.8vw;
+    height: 2.2vw;
+}
+
+.selected-color-thumbnail {
+    height: 2.2vw;
+    width: 4.8vw;
+    border-radius: 5px;
+    border: 2px solid black;
 }
 
 .details-label-size {
@@ -67,14 +75,14 @@
     bottom: 13.6vw;
     right: 2.2vw;
     border-radius: 5px;
+    width: 4.8vw;
 }
 
-.open-clothing-modal-button{
+.open-clothing-modal-button {
     all: unset;
     position: absolute;
     width: 92%;
     height: 83%;
-    
 }
 
 @media (max-width: 768px) {
@@ -103,16 +111,25 @@
     .details-label-color {
         bottom: 15vw;
         right: 4.2vw;
-        font-size: 4vw;
+        font-size: 3.5vw;
+        height: 5vw;
+        width: 12vw;
+    }
+
+    .selected-color-thumbnail {
+        height: 5vw;
+        width: 12vw;
+        border-radius: 5px;
+        border: 2px solid black;
     }
     
     .details-label-size {
         bottom: 22.2vw;
         right: 4.2vw;
-        font-size: 4vw;
+        font-size: 3vw;
     }
 
-    .open-clothing-modal-button{
+    .open-clothing-modal-button {
         display: none;
     }
 }

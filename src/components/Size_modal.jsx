@@ -1,16 +1,27 @@
 import React from 'react';
-import './styles/Size_modal.css'; // Asegúrate de que este archivo CSS exista y tenga los estilos adecuados
+import './styles/Size_modal.css';
 
-export const Size_modal = ({ isOpen, onClose }) => {
+export const Size_modal = ({ isOpen, onClose, sizes = [], onSelectSize }) => {
+  const handleSizeSelect = (size) => {
+    onSelectSize(size);
+    onClose();
+  };
+
   return (
     <div className={`modal-size-overlay ${isOpen ? 'show' : ''}`} onClick={onClose}>
-      <button className='close-size-button' onClick={onClose}>X</button>
       <div className="modal-size-content" onClick={(e) => e.stopPropagation()}>
-        <label>S</label>
-        <label>M</label>
-        <label>L</label>
-        <label>XL</label>
-        <label>XXL</label>
+        <div className='size-modal-close-button-wrapper'>
+          <button className='close-size-button' onClick={onClose}>X</button>
+        </div>
+        <div className='size-modal-sizes-wrapper'>
+          {sizes.length > 0 ? (
+            sizes.map((size, index) => (
+              <label key={index} onClick={() => handleSizeSelect(size)}>{size}</label>
+            ))
+          ) : (
+            <p>No sizes available</p>
+          )}
+        </div>
       </div>
     </div>
   );

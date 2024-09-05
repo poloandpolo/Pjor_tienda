@@ -12,6 +12,14 @@
     visibility: hidden;
 }
 
+.close-clothing-button{
+    all: unset;
+    color: brown;
+    font-size: 35px;
+    position: absolute;
+    transform: translateX(1.1vw) translateY(-2.1vw);
+}
+
 .modal-clothing-overlay.show {
     visibility: visible;
 }
@@ -24,7 +32,17 @@
     max-height: 100vh;
     overflow: hidden;
     position: relative;
+    text-align: center;
+    font-family: Permanent Marker;
     /* Evita que el contenido se desborde */
+}
+
+.modal-clothing-title{
+    font-size: 22px;
+}
+
+.modal-clothing-title-wrapper{
+    transform: translateY(6px);
 }
 
 .clothing-modal-add-to-cart-icon{
@@ -48,17 +66,34 @@
     bottom: 9.8vw;
     right: 3vw;
     border-radius: 5px;
+    width: 5vw;
+    height: 2vw;
+    text-align: center;
 }
+
+.modal-selected-color-thumbnail{
+    height: 2vw;
+    width: 5vw;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+
 
 .clothing-modal-details-label-size{
     font-family: Permanent Marker;
     font-size: 1.6vw;
     position: absolute;
     background-color: rgb(255, 255, 255);
-    z-index: 1500;
+    z-index: 1;
     bottom: 12.6vw;
     right: 3vw;
     border-radius: 5px;
+    height: 2vw;
+    width: 5vw;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 

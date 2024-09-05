@@ -2,7 +2,7 @@ import React from 'react';
 import { Clothing_card } from './Clothing_card';
 import './styles/Clothing_galery.css'; // Asegúrate de que esta importación sea correcta
 
-export const Clothing_galery = ({ items, isClothingBarOpen, onOpenClothingModal }) => {
+export const Clothing_galery = ({ items, isClothingBarOpen, onOpenClothingModal, onWarning, onConfirm }) => {
     return (
         <div className={`galery-container ${isClothingBarOpen ? 'with-clothing-bar' : ''}`}>
             {items.map(item => (
@@ -11,10 +11,15 @@ export const Clothing_galery = ({ items, isClothingBarOpen, onOpenClothingModal 
                     images={item.images}
                     text={item.text}
                     id={item.id}
+                    sizes={item.sizes}
+                    colors={item.colors}
+                    price={item.price}
                     isClothingBarOpen={isClothingBarOpen}
-                    
                     onOpenClothingModal={onOpenClothingModal}
+                    onWarning={onWarning}
+                    onConfirm={onConfirm}  // Nueva prop
                 />
+
             ))}
         </div>
     );

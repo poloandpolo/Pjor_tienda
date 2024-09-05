@@ -1,0 +1,46 @@
+.modal-confirmation-overlay {
+    position: fixed;
+    top: 20.5%;
+    left: 50.6%;
+    width: 30vw;
+    height: 3vh;
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    transform: translate(-50%);
+}
+
+.modal-confirmation-overlay.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-confirmation-content {
+    background-color: rgba(252, 252, 252, 0.966);
+    padding: 20px;
+    border-radius: 17px;
+    width: 30vw;
+    height: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    z-index: 1500;
+}
+
+.modal-confirmation-content img {
+    width: 30px;
+    height: 30px;
+    margin-right: 2px;
+    opacity: 1;
+}
+
+.modal-confirmation-content p {
+    margin: 0; /* Remover margen */
+}

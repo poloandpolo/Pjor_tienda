@@ -1,0 +1,42 @@
+.modal-warning-overlay {
+    position: fixed;
+    top: -12.5vw;
+    left: 0;
+    width: 30vw;
+    height: 3vh;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    z-index: 1500;
+    top: 20.3%;
+    left: 50.6%;
+    transform: translate(-50%);
+}
+
+.modal-warning-overlay.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-warning-content {
+    background-color: rgba(252, 252, 252, 0.966);
+    padding: 20px;
+    border-radius: 17px;
+    width: 30vw;
+    height: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    z-index: 1500;
+}
+
+.modal-warning-content p {
+    margin: 0; /* Remover margen */
+}

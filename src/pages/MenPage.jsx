@@ -1,3 +1,4 @@
+// src/pages/MenPage.js
 import React, { useState } from 'react';
 import { Header } from '../components/Header';
 import { Navigation_bar } from '../components/Navigation_bar';
@@ -5,11 +6,12 @@ import { Clothing_bar } from '../components/Clothing_bar';
 import './styles/MenPage.css';
 import { Clothing_galery } from '../components/Clothing_galery';
 import { Clothing_modal } from '../components/Clothing_modal';
-import playera_logo_clasica_hombre from '../images/playera_logo_clasica_hombre.jpg';
-import playera_logo_clasica_hombre_2 from '../images/playera_logo_clasica_hombre.jpg'; // Asegúrate de que la ruta sea correcta
 import { Menu_button } from '../components/Menu_button';
 import { Shopping_cart } from '../components/Shopping_cart';
 import { Shopping_cart_button } from '../components/Shopping_cart_button';
+import { useMenPageContext } from '../context/MenPage_context';
+import { Warning_modal } from '../components/Warning_modal';
+import { Confirmation_modal } from '../components/Confimation_modal';
 
 const dropdownMenus = [
     {
@@ -39,20 +41,14 @@ const dropdownMenus = [
     }
 ];
 
-const clothingItems = [
-    { id: 1, images: [playera_logo_clasica_hombre, playera_logo_clasica_hombre_2], text: "Playera logo clásica" },
-    { id: 2, images: [playera_logo_clasica_hombre, playera_logo_clasica_hombre_2], text: "Playera logo clásica 2" },
-    { id: 3, images: [playera_logo_clasica_hombre, playera_logo_clasica_hombre_2], text: "Playera logo clásica 3" },
-    { id: 4, images: [playera_logo_clasica_hombre, playera_logo_clasica_hombre_2], text: "Playera logo clásica 4" },
-    { id: 5, images: [playera_logo_clasica_hombre, playera_logo_clasica_hombre_2], text: "Playera logo clásica 5" },
-    { id: 6, images: [playera_logo_clasica_hombre, playera_logo_clasica_hombre_2], text: "Playera logo clásica 6" }
-];
-
 export const MenPage = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [isClothingBarOpen, setIsClothingBarOpen] = useState(false);
     const [clothingModalData, setClothingModalData] = useState(null);
-    
+    const [isWarningModalOpen, setIsWarningModalOpen] = useState(false);
+    const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
+
+    const { clothingItems } = useMenPageContext();
 
     const openClothingModal = (item) => {
         setClothingModalData(item);
@@ -73,6 +69,23 @@ export const MenPage = () => {
     const toggleClothingBar = () => {
         setIsClothingBarOpen(prevState => !prevState);
     };
+
+    const openWarningModal = () => {
+        setIsWarningModalOpen(true);
+    };
+
+    const closeWarningModal = () => {
+        setIsWarningModalOpen(false);
+    };
+
+    const openConfirmationModal = () => {
+        setIsConfirmationModalOpen(true);
+    };
+
+    const closeConfirmationModal = () => {
+        setIsConfirmationModalOpen(false);
+    };
+
 
     return (
         <div className='men-page-container'>
@@ -96,7 +109,10 @@ export const MenPage = () => {
                     items={clothingItems}
                     isClothingBarOpen={isClothingBarOpen}
                     onOpenClothingModal={openClothingModal}
+                    onWarning={openWarningModal}
+                    onConfirm={openConfirmationModal}  // Nueva prop
                 />
+
             </div>
             <Shopping_cart_button
                 onClick={openModal}
@@ -111,6 +127,19 @@ export const MenPage = () => {
                 isOpen={clothingModalData !== null}
                 onClose={closeClothingModal}
                 data={clothingModalData}
+                onWarning={openWarningModal}
+                onConfirm={openConfirmationModal}  // Asegúrate de que esto esté presente
+            />
+
+            <Confirmation_modal
+                isOpen={isConfirmationModalOpen}
+                onClose={closeConfirmationModal}
+            />
+
+
+            <Warning_modal
+                isOpen={isWarningModalOpen}
+                onClose={closeWarningModal}
             />
         </div>
     );

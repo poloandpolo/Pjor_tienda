@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import './styles/Clothing_modal.css';
 import add_to_cart_icon from '/bolsa-de-la-compra.png';
 import { Size_modal } from './Size_modal';
+import { Color_modal } from './Color_modal';
+import { useMenPageContext } from '../context/MenPage_context';
 
-export const Clothing_modal = ({ isOpen, onClose, data }) => {
+export const Clothing_modal = ({ isOpen, onClose, data, onWarning, onConfirm }) => {
+  const [isSizeModalOpen, setIsSizeModalOpen] = useState(false);
+  const [isColorModalOpen, setIsColorModalOpen] = useState(false);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const { addToCart } = useMenPageContext();
+
   if (!data) return null;
 
   const settings = {
@@ -14,6 +22,38 @@ export const Clothing_modal = ({ isOpen, onClose, data }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
+  };
+
+  const handleAddToCart = () => {
+    if (!selectedSize || !selectedColor) {
+      onWarning(); // Mostrar el modal de advertencia si no se selecciona talla o color
+    } else {
+      addToCart({
+        images: data.images,
+        text: data.text,
+        id: data.id,
+        size: selectedSize,
+        color: selectedColor,
+        price: data.price
+      });
+      onConfirm()
+    }
+  };
+
+  const openSizeModal = () => {
+    setIsSizeModalOpen(true);
+  };
+
+  const closeSizeModal = () => {
+    setIsSizeModalOpen(false);
+  };
+
+  const openColorModal = () => {
+    setIsColorModalOpen(true);
+  };
+
+  const closeColorModal = () => {
+    setIsColorModalOpen(false);
   };
 
   return (
@@ -36,23 +76,43 @@ export const Clothing_modal = ({ isOpen, onClose, data }) => {
               </div>
             ))}
           </Slider>
-          <label className='clothing-modal-details-label-color'>Color</label>
-          <label className='clothing-modal-details-label-size'>Talla</label>
+          <div className='details-label-container'>
+            <label className='clothing-modal-details-label-color' onClick={openColorModal}>
+              {selectedColor ? (
+                <img src={selectedColor} alt="Selected Color" className='modal-selected-color-thumbnail' />
+              ) : (
+                'Color'
+              )}
+            </label>
+            <label className='clothing-modal-details-label-size' onClick={openSizeModal}>
+              {selectedSize ? selectedSize : 'Talla'}
+            </label>
+          </div>
 
           <img
             className='clothing-modal-add-to-cart-icon'
             src={add_to_cart_icon}
             alt="Add to cart"
+            onClick={handleAddToCart}
           />
-
-          <h2 className='modal-clothing-title'>{data.text}</h2>
-
-            <Size_modal/>
+          <div className='modal-clothing-title-wrapper'>
+            <label className='modal-clothing-title'>{data.text} (${data.price})</label>
+          </div>
 
         </div>
-        {/* Aquí puedes añadir más contenido o detalles del modal */}
+        <Size_modal
+          isOpen={isSizeModalOpen}
+          onClose={closeSizeModal}
+          sizes={data.sizes || []}
+          onSelectSize={setSelectedSize}
+        />
+        <Color_modal
+          isOpen={isColorModalOpen}
+          onClose={closeColorModal}
+          colors={data.colors || []}
+          onSelectColor={setSelectedColor}
+        />
       </div>
     </div>
   );
 };
-
