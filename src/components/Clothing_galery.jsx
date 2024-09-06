@@ -1,5 +1,7 @@
 import React from 'react';
+import './styles/Clothing_galery.css'; 
 import { Clothing_card } from './Clothing_card';
+
 import './styles/Clothing_galery.css'; 
 
 export const Clothing_galery = ({ items, isClothingBarOpen, onOpenClothingModal, onWarning, onConfirm }) => {
