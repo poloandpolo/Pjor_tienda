@@ -128,7 +128,7 @@ export const MenPage = () => {
                 onClose={closeClothingModal}
                 data={clothingModalData}
                 onWarning={openWarningModal}
-                onConfirm={openConfirmationModal}  // Asegúrate de que esto esté presente
+                onConfirm={openConfirmationModal} 
             />
 
             <Confirmation_modal
